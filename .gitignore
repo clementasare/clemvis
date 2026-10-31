@@ -1,0 +1,25 @@
+# Python caches & builds
+__pycache__/
+*.py[cod]
+*$py.class
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Runtime output — snapshots, clips and the ledger database
+detections/
+*.db
+
+# OS & editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
