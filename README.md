@@ -2,7 +2,7 @@
 
 # motioniq
 
-### A real-time motion-detection security camera for the command line
+### A real-time computer vision motion-detection system.
 
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
 [![OpenCV](https://img.shields.io/badge/OpenCV-4.8%2B-green.svg)](https://opencv.org/)
@@ -23,7 +23,7 @@
 
 ## Overview
 
-**motioniq** is a desktop security-camera application written entirely in Python. It reads a live video feed, determines when a *person or object is genuinely moving* through the scene, raises an alarm, records video evidence, and stores a permanent, queryable log of everything that happened — all inside a terminal and a single OpenCV window.
+**motioniq** is a desktop surveillance system written entirely in Python. It reads a live video feed, determines when a *person or object is genuinely moving* through the scene, raises an alarm, records video evidence, and stores a permanent, queryable log of everything that happened — all inside a terminal and a single OpenCV window.
 
 It is designed to solve the two problems that make simple motion detectors useless in practice:
 
