@@ -2,7 +2,7 @@
 
 ## CLEMVIS
  
-### A real-time computer vision and motion-tracking system featuring background subtraction, centroid tracking, zone-based monitoring, finite-state machine control, and performance evaluation.
+A real-time computer vision and motion-tracking system featuring background subtraction, centroid tracking, zone-based monitoring, finite-state machine control, and performance evaluation.
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
 [![OpenCV](https://img.shields.io/badge/OpenCV-4.8%2B-green.svg)](https://opencv.org/)
 [![NumPy](https://img.shields.io/badge/NumPy-1.24%2B-4dabf7.svg)](https://numpy.org/)
