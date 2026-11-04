@@ -1,10 +1,10 @@
 """Zone tests — Feature 2 (regions of interest and severity)."""
 import pytest
 
-from motioniq.config import DetectorConfig
-from motioniq.detector import assess
-from motioniq.tracking import CentroidTracker, Blob
-from motioniq.zones import Region, default_regions, parse_regions, region_at
+from clemvis.config import DetectorConfig
+from clemvis.detector import assess
+from clemvis.tracking import CentroidTracker, Blob
+from clemvis.zones import Region, default_regions, parse_regions, region_at
 
 W, H = 900, 600
 

@@ -1,5 +1,5 @@
 """
-motioniq — a console motion-detection & evidence system.
+clemvis — a console motion-detection & evidence system.
 
 A small, dependency-light security camera built with OpenCV, NumPy and the
 Python standard library. See README.md for the concepts and architecture.

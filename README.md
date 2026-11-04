@@ -1,9 +1,13 @@
 <div align="center">
 
-# motioniq
+# CLEMVIS
 
-A real-time computer vision and motion-tracking system featuring background subtraction, centroid tracking, zone-based monitoring, finite-state machine control, and performance evaluation.
+### A real-time computer vision and motion-tracking system featuring background subtraction, centroid tracking, zone-based monitoring, finite-state machine control, and performance evaluation.
+=======
+# CLEMVIS
+ 
 
+### A real-time computer vision and motion-tracking system featuring background subtraction, centroid tracking, zone-based monitoring, finite-state machine control, and performance evaluation.
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
 [![OpenCV](https://img.shields.io/badge/OpenCV-4.8%2B-green.svg)](https://opencv.org/)
 [![NumPy](https://img.shields.io/badge/NumPy-1.24%2B-4dabf7.svg)](https://numpy.org/)
@@ -14,7 +18,7 @@ A real-time computer vision and motion-tracking system featuring background subt
 [Features](#features) · [How it works](#how-it-works) · [Performance](#performance-evaluation) · [Installation](#installation) · [Usage](#usage) · [Architecture](#architecture)
 
 <!-- To add a demo image, drop a screenshot or GIF into docs/ and uncomment:
-<p align="center"><img src="docs/demo.gif" alt="motioniq detecting motion" width="720"></p>
+<p align="center"><img src="docs/demo.gif" alt="clemvis detecting motion" width="720"></p>
 -->
 
 </div>
@@ -22,13 +26,12 @@ A real-time computer vision and motion-tracking system featuring background subt
 ---
 
 ## Overview
-
-**motioniq** is a desktop surveillance system written entirely in Python. It reads a live video feed, determines when a *person or object is genuinely moving* through the scene, raises an alarm, records video evidence, and stores a permanent, queryable log of everything that happened — all inside a terminal and a single OpenCV window.
+**CLEMVIS** is a real-time visual sensing and motion-tracking system written in Python. It processes a live video feed, detects and tracks moving objects, estimates their direction of movement, and records detection events using computer vision techniques.
 
 It is designed to solve the two problems that make simple motion detectors useless in practice:
 
-1. **False alarms.** A naive detector fires at anything that changes — curtains in a draft, a wobbling chair, a cloud passing the window, a light being switched on. motioniq rejects all of these by requiring motion to be large enough, persistent enough, and to actually *travel* somewhere.
-2. **Unusable output.** Detectors that save every frame produce hundreds of files nobody will ever review. motioniq captures a strictly rate-limited set of clean, timestamped artifacts that remain useful as evidence.
+1. **False alarms.** A naive detector fires at anything that changes — curtains in a draft, a wobbling chair, a cloud passing the window, a light being switched on. clemvis rejects all of these by requiring motion to be large enough, persistent enough, and to actually *travel* somewhere.
+2. **Unusable output.** Detectors that save every frame produce hundreds of files nobody will ever review. clemvis captures a strictly rate-limited set of clean, timestamped artifacts that remain useful as evidence.
 
 The system is fully self-contained: no cloud services, no API keys, no database server, no web framework. Its only runtime dependencies are **OpenCV** and **NumPy**; persistence uses **SQLite**, which ships with the Python standard library.
 
@@ -141,7 +144,7 @@ The repository includes a synthetic, fully deterministic test scene whose script
 
 ```
 ================================================================
-  motioniq — EVALUATION REPORT
+  clemvis — EVALUATION REPORT
 ================================================================
   Scenario            : standard
   Test duration       : 60 s (1201 frames)
@@ -176,8 +179,8 @@ The processing speed of roughly 55 FPS comfortably exceeds a 30 FPS camera, so t
 **Requirements:** Python 3.10 or newer, and a webcam (or use the built-in synthetic scene).
 
 ```bash
-git clone https://github.com/clementasare/motioniq.git
-cd motioniq
+git clone https://github.com/clementasare/clemvis.git
+cd clemvis
 
 python -m venv .venv
 .venv\Scripts\activate        # Windows
@@ -192,7 +195,7 @@ For development, including the test suite:
 pip install -r requirements-dev.txt
 ```
 
-The package can also be installed, which provides a `motioniq` console command:
+The package can also be installed, which provides a `clemvis` console command:
 
 ```bash
 pip install .
@@ -269,7 +272,7 @@ Zones can be disabled with `--no-zones`.
 
 ### Viewing the event log
 
-Every detection, alarm transition, snapshot and clip is appended to an SQLite database at `detections/motioniq.db`.
+Every detection, alarm transition, snapshot and clip is appended to an SQLite database at `detections/clemvis.db`.
 
 ```bash
 python main.py report
@@ -277,7 +280,7 @@ python main.py report
 
 ```
 ============================================================================================
-  motioniq LEDGER — detections/motioniq.db
+  clemvis LEDGER — detections/clemvis.db
 ============================================================================================
   18 events: motion=4, alarm_start=4, alarm_stop=4, snapshot=1, major_motion=3, ...
 --------------------------------------------------------------------------------------------
@@ -306,7 +309,7 @@ Because the ledger is a standard SQLite file, it can also be queried directly wi
 | `--clip-cooldown` | 30 | Minimum seconds between two recorded clips |
 | `--snapshot-cooldown` | 10 | Minimum seconds between two snapshots |
 | `--save-dir` | `detections` | Output directory for evidence and the database |
-| `--db` | *(save-dir)/motioniq.db* | Path of the event database |
+| `--db` | *(save-dir)/clemvis.db* | Path of the event database |
 | `--no-alarm` | off | Disable the audible siren |
 | `--annotate-evidence` | off | Burn the diagnostic overlay into saved files |
 | `--no-zones` | off | Disable region-of-interest logic |
@@ -340,7 +343,7 @@ Each stage is a separate module with a single responsibility, and the decision l
 ### Project structure
 
 ```
-motioniq/
+clemvis/
 ├── pipeline.py     Vision: background subtraction and contour extraction
 ├── tracking.py     Centroid tracker, direction, confirmation and travel gates
 ├── zones.py        Regions of interest and severity assignment
@@ -389,7 +392,7 @@ The synthetic camera scene serves a second purpose here: because it is determini
 
 ## Design decisions
 
-**Adaptive background over frame differencing.** Subtracting consecutive frames detects a moving object twice — on arrival and on departure — and leaves a ghost trail. motioniq maintains a running average of the empty scene and subtracts that, updating it only while the scene is calm so that stationary people are not absorbed.
+**Adaptive background over frame differencing.** Subtracting consecutive frames detects a moving object twice — on arrival and on departure — and leaves a ghost trail. clemvis maintains a running average of the empty scene and subtracts that, updating it only while the scene is calm so that stationary people are not absorbed.
 
 **Evidence saved without clutter.** Recorded footage carries only a UTC timestamp rather than bounding boxes and telemetry. Evidence should show the scene; the diagnostic overlay exists for tuning and can be enabled explicitly.
 
@@ -406,7 +409,7 @@ The synthetic camera scene serves a second purpose here: because it is determini
 Stated plainly, because they define the project's scope:
 
 - **Visible-light, static camera.** The system requires a fixed viewpoint; a moving or panning camera invalidates the background model.
-- **Detection, not recognition.** motioniq reports that something moved, where and in which direction — it does not classify what the object is. A pet and a person produce the same alert.
+- **Detection, not recognition.** clemvis reports that something moved, where and in which direction — it does not classify what the object is. A pet and a person produce the same alert.
 - **Nearest-neighbour tracking.** The tracker links detections by proximity. Two targets that fully overlap for several frames may have their identities merged.
 - **Benchmark scope.** The 100 % recall and precision figures are measured against the synthetic scene, which validates the detection logic. Real environments are less controlled and typically require per-site tuning of the travel and area thresholds.
 - **No remote access.** Evidence is written to local disk; there is no network streaming, notification or web interface.

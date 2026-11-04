@@ -7,8 +7,8 @@ testable. Each test hands the pipeline crafted frames and checks the verdict.
 import cv2
 import numpy as np
 
-from motioniq.config import DetectorConfig
-from motioniq.pipeline import VisionPipeline
+from clemvis.config import DetectorConfig
+from clemvis.pipeline import VisionPipeline
 
 W, H = 640, 360
 

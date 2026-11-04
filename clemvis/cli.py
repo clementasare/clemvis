@@ -25,7 +25,7 @@ from .zones import parse_regions
 
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(
-        prog="motioniq",
+        prog="clemvis",
         description="Console motion-detection & evidence system (OpenCV).",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
@@ -76,7 +76,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--save-dir", type=Path, default=Path("detections"),
                    help="where snapshots / clips / ledger live")
     p.add_argument("--db", type=Path,
-                   help="ledger path (default: <save-dir>/motioniq.db)")
+                   help="ledger path (default: <save-dir>/clemvis.db)")
     p.add_argument("--no-alarm", action="store_true", help="silent mode")
     p.add_argument("-v", "--verbose", action="store_true", help="debug logging")
     p.add_argument("--version", action="version",
@@ -108,7 +108,7 @@ def print_report(db_path: Path, limit: int) -> None:
     ledger = EventLedger(db_path)
     try:
         print("=" * 92)
-        print(f"  motioniq LEDGER — {db_path}")
+        print(f"  clemvis LEDGER — {db_path}")
         print("=" * 92)
         print(f"  {ledger.count()} events: "
               + ",  ".join(f"{k}={v}" for k, v in ledger.summary().items()))
@@ -158,7 +158,7 @@ def main(argv: list[str] | None = None) -> int:
     )
 
     if args.command == "report":
-        print_report(args.db or Path("detections") / "motioniq.db", args.limit)
+        print_report(args.db or Path("detections") / "clemvis.db", args.limit)
         return 0
 
     if args.command == "evaluate":

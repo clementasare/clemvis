@@ -95,7 +95,7 @@ class DetectorConfig:
     @property
     def db_file(self) -> Path:
         """Ledger database location (inside save_dir unless overridden)."""
-        return self.db_path if self.db_path else self.save_dir / "motioniq.db"
+        return self.db_path if self.db_path else self.save_dir / "clemvis.db"
 
     @property
     def active_regions(self) -> list[Region]:

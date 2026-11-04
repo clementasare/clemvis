@@ -5,8 +5,8 @@ These run the whole stack (pipeline + tracker + FSM) against the scripted
 synthetic scene and assert measurable quality: every real intrusion is
 found, and the curtain never raises an alarm.
 """
-from motioniq.config import DetectorConfig
-from motioniq.evaluate import run_evaluation
+from clemvis.config import DetectorConfig
+from clemvis.evaluate import run_evaluation
 
 
 def quick_config(**overrides) -> DetectorConfig:

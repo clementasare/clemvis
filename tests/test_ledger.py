@@ -1,5 +1,5 @@
 """Ledger tests — SQLite round-trip using pytest's tmp_path sandbox."""
-from motioniq.ledger import EventLedger
+from clemvis.ledger import EventLedger
 
 
 def test_log_read_and_summary(tmp_path):

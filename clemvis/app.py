@@ -42,9 +42,9 @@ from .pipeline import VisionPipeline
 from .tracking import CentroidTracker
 from .zones import region_at
 
-log = logging.getLogger("motioniq.app")
+log = logging.getLogger("clemvis.app")
 
-WINDOW_NAME = "motioniq - CAM 00"
+WINDOW_NAME = "clemvis - CAM 00"
 
 
 class SurveillanceApp:
@@ -55,7 +55,7 @@ class SurveillanceApp:
         c = self.cfg
         src = "synthetic demo" if c.demo else f"camera #{c.camera_index}"
         print("=" * 60)
-        print(f"  motioniq v{__version__} — console motion surveillance")
+        print(f"  clemvis v{__version__} — console motion surveillance")
         print("=" * 60)
         print(f"  source      : {src} ({c.width}x{c.height}, "
               f"vision @ {c.process_width}px)")
@@ -270,5 +270,5 @@ class SurveillanceApp:
             ledger.close()
             sys.stdout.write("\n")
             print("-" * 60)
-            print("  motioniq offline — camera released, evidence saved.")
+            print("  clemvis offline — camera released, evidence saved.")
         return 0

@@ -6,7 +6,7 @@ moves constantly but never goes anywhere, so it must never be confirmed.
 """
 import math
 
-from motioniq.tracking import Blob, CentroidTracker
+from clemvis.tracking import Blob, CentroidTracker
 
 
 def tracker(**kw) -> CentroidTracker:

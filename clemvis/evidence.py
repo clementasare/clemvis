@@ -18,7 +18,7 @@ import numpy as np
 
 from .config import DetectorConfig
 
-log = logging.getLogger("motioniq.evidence")
+log = logging.getLogger("clemvis.evidence")
 
 
 def _stamp_name() -> str:

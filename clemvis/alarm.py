@@ -43,7 +43,7 @@ class Alarm:
             return
         self._stop.clear()
         self._thread = threading.Thread(
-            target=self._siren, name="motioniq-siren", daemon=True
+            target=self._siren, name="clemvis-siren", daemon=True
         )
         self._thread.start()
 

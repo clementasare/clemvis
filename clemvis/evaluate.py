@@ -87,7 +87,7 @@ class EvaluationReport:
         lines: list[str] = []
         add = lines.append
         add("=" * 64)
-        add("  motioniq — EVALUATION REPORT")
+        add("  clemvis — EVALUATION REPORT")
         add("=" * 64)
         add(f"  Scenario            : {self.scenario}")
         add(f"  Test duration       : {self.duration:.0f} s "

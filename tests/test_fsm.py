@@ -3,8 +3,8 @@ State machine tests — injected timestamps let us replay whole intrusion
 timelines deterministically and assert every rule: hysteresis, capture
 cooldowns, escalation and budget resets.
 """
-from motioniq.config import DetectorConfig
-from motioniq.detector import (
+from clemvis.config import DetectorConfig
+from clemvis.detector import (
     ALARM_OFF,
     ALARM_ON,
     BACK_TO_IDLE,
